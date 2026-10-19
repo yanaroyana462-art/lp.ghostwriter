@@ -39,7 +39,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif}
       <a href="#alur" class="hover:text-amber-400 transition">Alur Kerja</a>
       <a href="#faq" class="hover:text-amber-400 transition">FAQ</a>
     </nav>
-    <button @click="openModal()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-5 py-2.5 rounded-xl font-semibold text-sm transition shadow-lg shadow-amber-500/20">Daftar Sekarang</button>
+    <a href="https://wa.me/6285794506290?text=Halo%2C%20saya%20ingin%20konsultasi%20gratis%20tentang%20pembuatan%20buku" target="_blank" rel="noopener" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-5 py-2.5 rounded-xl font-semibold text-sm transition shadow-lg shadow-amber-500/20">Konsultasi Gratis</a>
   </div>
 </header>
 
@@ -51,16 +51,17 @@ body{font-family:'Plus Jakarta Sans',sans-serif}
     <p x-show="promoText" x-cloak class="mb-6 text-sm text-slate-300">Promo berakhir dalam <strong class="text-amber-400 tabular-nums" x-text="promoText"></strong></p>
     <div x-show="!promoText" class="mb-3"></div>
     <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight font-serif-custom text-white leading-tight mb-6">
-      Ubah Gagasan Anda Menjadi Buku Fisik, <span class="text-amber-400 italic">PDF & Web Book Interaktif</span>
+      Ubah Gagasan Anda Menjadi Buku, <span class="text-amber-400 italic">PDF Siap Cetak & Web Book</span>
     </h1>
     <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-4 leading-relaxed">
-      Mulai dari <strong class="text-amber-400">Rp 1.500.000</strong> untuk naskah di bawah 50 halaman, selesai dalam 7 hari. Tersedia sampai 200+ halaman dengan harga yang menyesuaikan.
+      Mulai <strong class="text-amber-400">Rp 1.500.000</strong> untuk naskah 20–49 halaman. File PDF siap cetak atau Web Book, dengan waktu pengerjaan 7–30 hari sesuai paket.
     </p>
     <p class="text-sm text-slate-400 mb-10">Cocok untuk dai, ustaz, pendidik, dan praktisi parenting yang punya ilmu dan pengalaman tapi belum sempat menuliskannya menjadi buku.</p>
     <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
-      <button @click="openModal()" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-8 py-4 rounded-xl transition shadow-xl shadow-amber-500/20">Daftar & Amankan Harga Promo</button>
-      <a href="#contoh" class="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold px-8 py-4 rounded-xl transition text-center">Lihat Contoh Tampilan</a>
+      <a href="https://wa.me/6285794506290?text=Halo%2C%20saya%20ingin%20konsultasi%20gratis%20tentang%20pembuatan%20buku" target="_blank" rel="noopener" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-8 py-4 rounded-xl transition shadow-xl shadow-amber-500/20 text-center">Konsultasi Gratis via WhatsApp</a>
+      <a href="#portofolio" class="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold px-8 py-4 rounded-xl transition text-center">Baca Contoh Karya</a>
     </div>
+    <p class="text-xs text-slate-500 mt-5">Tidak wajib memesan. Konsultasi awal gratis; file cetak berupa PDF siap cetak, biaya produksi buku fisik tidak termasuk.</p>
   </div>
 </section>
 
@@ -74,8 +75,8 @@ body{font-family:'Plus Jakarta Sans',sans-serif}
     <div class="grid md:grid-cols-2 gap-8">
       <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl">
         <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 text-xl">📄</div>
-        <h3 class="text-2xl font-bold text-white mb-3">Naskah Buku Cetak & Format PDF</h3>
-        <p class="text-slate-400 leading-relaxed mb-6">Format siap cetak untuk penerbit, dibagikan internal perusahaan, atau dijual sebagai e-book.</p>
+        <h3 class="text-2xl font-bold text-white mb-3">Naskah & PDF Siap Cetak</h3>
+        <p class="text-slate-400 leading-relaxed mb-6">Naskah ditata untuk dikirim ke penerbit, dicetak mandiri, dibagikan internal, atau dijual sebagai e-book. Biaya cetak fisik tidak termasuk.</p>
         <ul class="space-y-3 text-sm text-slate-300">
           <li>✓ Struktur bab komprehensif, dari 20 sampai 200+ halaman</li>
           <li>✓ 100% hak cipta di tangan Anda (NDA)</li>
@@ -186,7 +187,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif}
   <div class="max-w-6xl mx-auto px-6">
     <div class="text-center max-w-2xl mx-auto mb-12">
       <h2 class="text-3xl md:text-4xl font-bold font-serif-custom text-white mb-4">Contoh Karya Web Book</h2>
-      <p class="text-slate-400">Buku digital yang sudah dirilis dan bisa Anda buka langsung. Rasakan sendiri pengalaman membacanya.</p>
+      <p class="text-slate-400">Buka dan baca contoh web book yang sudah dirilis. Lihat langsung pengalaman membaca, navigasi bab, dan fitur digitalnya.</p>
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
       <template x-for="w in works" :key="w.u">
@@ -235,7 +236,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif}
             <label class="block text-sm font-semibold text-slate-300 mb-3">1. Pilih format buku</label>
             <div class="grid grid-cols-2 gap-3">
               <div @click="formatType='pdf'" :class="formatType==='pdf'?'border-amber-500 bg-amber-500/10 text-white':'border-slate-800 bg-slate-950 text-slate-300'" class="border rounded-xl p-4 text-center cursor-pointer transition">
-                <p class="font-bold text-sm">Buku Cetak / PDF</p><p class="text-xs text-slate-400 mt-1">Naskah standar</p>
+                <p class="font-bold text-sm">Naskah & PDF siap cetak</p><p class="text-xs text-slate-400 mt-1">Biaya cetak fisik terpisah</p>
               </div>
               <div @click="formatType='webbook'" :class="formatType==='webbook'?'border-amber-500 bg-amber-500/10 text-white':'border-slate-800 bg-slate-950 text-slate-300'" class="border rounded-xl p-4 text-center cursor-pointer transition">
                 <p class="font-bold text-sm">Interactive Web Book</p><p class="text-xs text-slate-400 mt-1">Fitur digital lengkap</p>
@@ -346,9 +347,9 @@ body{font-family:'Plus Jakarta Sans',sans-serif}
     <h3 class="text-sm font-semibold text-amber-400 mb-3">Format & fitur</h3>
     <div class="space-y-3 mb-10">
       <details class="group bg-slate-900 border border-slate-800 rounded-2xl open:border-amber-500/40">
-        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none px-6 py-5 font-semibold text-white"><span>Apa bedanya Buku Cetak / PDF dengan Interactive Web Book?</span><span class="text-amber-400 transition group-open:rotate-45 text-xl">+</span></summary>
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none px-6 py-5 font-semibold text-white"><span>Apa bedanya Naskah & PDF siap cetak dengan Interactive Web Book?</span><span class="text-amber-400 transition group-open:rotate-45 text-xl">+</span></summary>
         <div class="px-6 pb-5 text-sm text-slate-300 leading-relaxed space-y-2">
-          <p><strong>Buku Cetak / PDF</strong> adalah naskah dengan tata letak rapi (sampul, daftar isi, bab, nomor halaman) yang bisa dicetak, dikirim ke penerbit, atau dijual sebagai e-book.</p>
+          <p><strong>Naskah & PDF siap cetak</strong> mencakup naskah dengan tata letak rapi (sampul, daftar isi, bab, nomor halaman) yang bisa dikirim ke penerbit, dicetak mandiri, atau dijual sebagai e-book. Biaya produksi dan pengiriman buku fisik tidak termasuk.</p>
           <p><strong>Interactive Web Book</strong> adalah buku yang dibaca lewat browser dengan tautan sendiri. Pembaca bisa mendengarkan isi bab (Text-to-Speech), mengganti bahasa, dan mengunduh PDF langsung dari web.</p>
         </div>
       </details>
@@ -372,8 +373,8 @@ body{font-family:'Plus Jakarta Sans',sans-serif}
       <details class="group bg-slate-900 border border-slate-800 rounded-2xl open:border-amber-500/40">
         <summary class="flex justify-between items-center gap-4 cursor-pointer list-none px-6 py-5 font-semibold text-white"><span>Berapa harga layanan ini, dan apa maksud harga promo?</span><span class="text-amber-400 transition group-open:rotate-45 text-xl">+</span></summary>
         <div class="px-6 pb-5 text-sm text-slate-300 leading-relaxed space-y-2">
-          <p>Harga bergantung pada format dan jumlah halaman. Buku Cetak / PDF mulai Rp 1.500.000 (20-49 halaman) sampai Rp 6.500.000 (150-200+ halaman). Interactive Web Book mulai Rp 2.500.000 sampai Rp 8.500.000.</p>
-          <p>Harga yang tampil adalah harga promo peluncuran, jauh di bawah harga normal yang dicoret di kalkulator. Harga promo berlaku untuk pendaftaran selama masa promosi dan kuotanya terbatas.</p>
+          <p>Harga bergantung pada format dan jumlah halaman. Naskah & PDF siap cetak mulai Rp 1.500.000 (20-49 halaman) sampai Rp 6.500.000 (150-200+ halaman). Interactive Web Book mulai Rp 2.500.000 sampai Rp 8.500.000. Biaya cetak fisik tidak termasuk.</p>
+          <p>Harga promo berlaku untuk pendaftaran sampai 30 November 2026. Harga akhir dan ruang lingkup pekerjaan dikonfirmasi sebelum proyek dimulai.</p>
         </div>
       </details>
       <details class="group bg-slate-900 border border-slate-800 rounded-2xl open:border-amber-500/40">
@@ -499,7 +500,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif}
           <div class="grid sm:grid-cols-2 gap-4">
             <div><label class="block text-sm font-medium text-slate-300 mb-1.5" for="f-format">Format</label>
               <select id="f-format" x-model="formatType" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 focus:outline-none rounded-xl px-4 py-3 text-sm">
-                <option value="pdf">Buku Cetak / PDF</option><option value="webbook">Interactive Web Book</option></select></div>
+                <option value="pdf">Naskah & PDF siap cetak</option><option value="webbook">Interactive Web Book</option></select></div>
             <div><label class="block text-sm font-medium text-slate-300 mb-1.5" for="f-hal">Jumlah halaman</label>
               <select id="f-hal" x-model="selectedId" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 focus:outline-none rounded-xl px-4 py-3 text-sm">
                 <template x-for="t in tiers" :key="t.id"><option :value="t.id" x-text="t.pages + ' hlm (' + t.time + ')'"></option></template></select></div>
@@ -532,7 +533,7 @@ function bookCalculator(){
     ],
     sel(){return this.tiers.find(t=>t.id===this.selectedId)||this.tiers[3]},
     price(t){const p=this.formatType==='pdf'?t.pdf:t.web;return{promo:p[0],normal:p[1]}},
-    formatLabel(){return this.formatType==='pdf'?'Buku Cetak / PDF':'Interactive Web Book'},
+    formatLabel(){return this.formatType==='pdf'?'Naskah & PDF siap cetak':'Interactive Web Book'},
     rp(v){return new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(v)},
     // ATUR TANGGAL AKHIR PROMO DI SINI (hanya tampil jika belum lewat)
     promoEnd:new Date('2026-11-30T23:59:59+07:00'),

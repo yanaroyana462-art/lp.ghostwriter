@@ -8,6 +8,9 @@ h1{font-size:28px;margin:0 0 4px}h2{font-size:18px;margin:28px 0 8px;color:#b453
 table{width:100%;border-collapse:collapse;font-size:14px}
 th,td{border:1px solid #cbd5e1;padding:8px 10px;vertical-align:top;text-align:left}
 th{background:#fef3c7}.box{background:#f1f5f9;border-left:4px solid #f59e0b;padding:12px 16px;margin:16px 0;font-size:14px}
+.table-wrap{overflow-x:auto}
+table{min-width:760px}
+textarea{box-sizing:border-box;width:100%;min-width:140px;min-height:76px;font:inherit;font-size:13px;color:#1e293b;padding:6px;border:1px solid #cbd5e1;border-radius:4px;resize:vertical}
 footer{margin-top:32px;font-size:12px;color:#64748b;border-top:1px solid #cbd5e1;padding-top:12px}
 .no-print button{background:#f59e0b;border:0;padding:10px 18px;border-radius:8px;font-weight:bold;cursor:pointer}
 @media print{.no-print{display:none}body{padding:0}}
@@ -18,22 +21,24 @@ footer{margin-top:32px;font-size:12px;color:#64748b;border-top:1px solid #cbd5e1
 
 <h2>Cara memakai</h2>
 <div class="box">1) Tulis judul kerja dan satu kalimat janji buku: <em>"Setelah membaca, pembaca bisa ___."</em><br>
-2) Isi kolom "Isian Anda" untuk tiap bab, cukup 2-3 poin.<br>
+2) Klik kolom "Isian Anda" untuk tiap bab, lalu isi dengan 2-3 poin.<br>
 3) Satu bab idealnya 8-15 halaman. 12 bab setara kira-kira 100-180 halaman.</div>
 
+<div class="table-wrap">
 <table>
 <tr><th>Bab</th><th>Fungsi bab</th><th>Contoh Parenting</th><th>Contoh Religi</th><th>Isian Anda</th></tr>
-<tr><td>1</td><td>Pembuka: mengapa buku ini ada</td><td>Kegelisahan orang tua menghadapi anak dan gawai</td><td>Kebutuhan umat memahami ibadah secara praktis</td><td></td></tr>
-<tr><td>2</td><td>Masalah nyata pembaca</td><td>Anak sulit diatur, orang tua mudah marah</td><td>Ibadah rutin tapi terasa kosong</td><td></td></tr>
-<tr><td>3</td><td>Landasan & konsep inti</td><td>Pola asuh dan tahap perkembangan anak</td><td>Dalil, kaidah, dan pendapat ulama yang dirujuk</td><td></td></tr>
-<tr><td>4</td><td>Kerangka metode (beri nama, 3-5 langkah)</td><td>Metode "3 Langkah Tenang" saat anak tantrum</td><td>Metode "Lima Langkah Khusyuk" dalam salat</td><td></td></tr>
-<tr><td>5-8</td><td>Satu bab per langkah: penjelasan, contoh, latihan</td><td>Langkah 1: kenali emosi anak ... dst.</td><td>Langkah 1: siapkan hati sebelum ibadah ... dst.</td><td></td></tr>
-<tr><td>9</td><td>Studi kasus</td><td>Kisah satu keluarga sebelum-sesudah menerapkan metode</td><td>Kisah seseorang yang memperbaiki rutinitas ibadahnya</td><td></td></tr>
-<tr><td>10</td><td>Kesalahan umum & solusinya</td><td>Terlalu banyak melarang, kurang menjelaskan</td><td>Menyampaikan tanpa memahami konteks dalil</td><td></td></tr>
-<tr><td>11</td><td>Pertanyaan yang sering diajukan</td><td>"Bagaimana jika pasangan tidak sependapat?"</td><td>"Bagaimana jika sering lupa atau lalai?"</td><td></td></tr>
-<tr><td>12</td><td>Penutup & aksi 7 hari</td><td>Rencana satu minggu praktik di rumah</td><td>Rencana satu minggu memperbaiki amalan</td><td></td></tr>
-<tr><td>Lampiran</td><td>Alat bantu</td><td>Lembar latihan, jadwal keluarga</td><td>Daftar doa, rujukan kitab</td><td></td></tr>
+<tr><td>1</td><td>Pembuka: mengapa buku ini ada</td><td>Kegelisahan orang tua menghadapi anak dan gawai</td><td>Kebutuhan umat memahami ibadah secara praktis</td><td><textarea aria-label="Isian bab 1" placeholder="Tulis ide bab 1"></textarea></td></tr>
+<tr><td>2</td><td>Masalah nyata pembaca</td><td>Anak sulit diatur, orang tua mudah marah</td><td>Ibadah rutin tapi terasa kosong</td><td><textarea aria-label="Isian bab 2" placeholder="Tulis ide bab 2"></textarea></td></tr>
+<tr><td>3</td><td>Landasan & konsep inti</td><td>Pola asuh dan tahap perkembangan anak</td><td>Dalil, kaidah, dan pendapat ulama yang dirujuk</td><td><textarea aria-label="Isian bab 3" placeholder="Tulis ide bab 3"></textarea></td></tr>
+<tr><td>4</td><td>Kerangka metode (beri nama, 3-5 langkah)</td><td>Metode "3 Langkah Tenang" saat anak tantrum</td><td>Metode "Lima Langkah Khusyuk" dalam salat</td><td><textarea aria-label="Isian bab 4" placeholder="Tulis ide bab 4"></textarea></td></tr>
+<tr><td>5-8</td><td>Satu bab per langkah: penjelasan, contoh, latihan</td><td>Langkah 1: kenali emosi anak ... dst.</td><td>Langkah 1: siapkan hati sebelum ibadah ... dst.</td><td><textarea aria-label="Isian bab 5 sampai 8" placeholder="Tulis ide untuk bab 5 sampai 8"></textarea></td></tr>
+<tr><td>9</td><td>Studi kasus</td><td>Kisah satu keluarga sebelum-sesudah menerapkan metode</td><td>Kisah seseorang yang memperbaiki rutinitas ibadahnya</td><td><textarea aria-label="Isian bab 9" placeholder="Tulis ide bab 9"></textarea></td></tr>
+<tr><td>10</td><td>Kesalahan umum & solusinya</td><td>Terlalu banyak melarang, kurang menjelaskan</td><td>Menyampaikan tanpa memahami konteks dalil</td><td><textarea aria-label="Isian bab 10" placeholder="Tulis ide bab 10"></textarea></td></tr>
+<tr><td>11</td><td>Pertanyaan yang sering diajukan</td><td>"Bagaimana jika pasangan tidak sependapat?"</td><td>"Bagaimana jika sering lupa atau lalai?"</td><td><textarea aria-label="Isian bab 11" placeholder="Tulis ide bab 11"></textarea></td></tr>
+<tr><td>12</td><td>Penutup & aksi 7 hari</td><td>Rencana satu minggu praktik di rumah</td><td>Rencana satu minggu memperbaiki amalan</td><td><textarea aria-label="Isian bab 12" placeholder="Tulis ide bab 12"></textarea></td></tr>
+<tr><td>Lampiran</td><td>Alat bantu</td><td>Lembar latihan, jadwal keluarga</td><td>Daftar doa, rujukan kitab</td><td><textarea aria-label="Isian lampiran" placeholder="Tulis ide lampiran"></textarea></td></tr>
 </table>
+</div>
 
 <h2>Tips agar outline kuat</h2>
 <div class="box">• Satu bab, satu gagasan utama. Jika ada dua, pecah jadi dua bab.<br>

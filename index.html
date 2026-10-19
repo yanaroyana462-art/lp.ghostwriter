@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jasa Ghostwriting, PDF & Interactive Web Book — Kaffahmedia Studio</title>
+<meta name="description" content="Jasa penulisan buku (ghostwriting), naskah PDF, dan web book interaktif dengan TTS & multi-bahasa. Mulai Rp 1.500.000, selesai 7-30 hari. Hak cipta penuh milik Anda.">
+<meta name="theme-color" content="#020617">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="id_ID">
+<meta property="og:title" content="Jasa Ghostwriting, PDF & Interactive Web Book — Harga Promo">
+<meta property="og:description" content="Ubah gagasan Anda menjadi buku PDF atau web book interaktif. Mulai Rp 1.500.000, selesai 7-30 hari, hak cipta penuh milik Anda.">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Tambahkan: <meta property="og:image" content="URL gambar 1200x630"> dan <meta property="og:url" content="URL halaman ini"> -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23f59e0b'/%3E%3Ctext x='50' y='70' font-size='62' text-anchor='middle' font-family='serif' font-weight='bold' fill='%23020617'%3EM%3C/text%3E%3C/svg%3E">
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{font-family:'Plus Jakarta Sans',sans-serif}
+.font-serif-custom{font-family:'Playfair Display',serif}
+[x-cloak]{display:none!important}
+</style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-amber-500 selection:text-slate-950" x-data="bookCalculator()" @keydown.escape.window="modal=false">
+
+<!-- HEADER -->
+<header class="sticky top-0 z-40 bg-slate-950/85 backdrop-blur-md border-b border-slate-800">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <div class="flex items-center space-x-3">
+      <div class="w-10 h-10 rounded-lg bg-amber-500 flex items-center justify-center font-bold text-slate-950 text-xl font-serif-custom">M</div>
+      <span class="text-lg font-bold tracking-tight text-white font-serif-custom">Kaffahmedia Studio</span>
+    </div>
+    <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+      <a href="#fitur" class="hover:text-amber-400 transition">Format & Fitur</a>
+      <a href="#contoh" class="hover:text-amber-400 transition">Contoh Tampilan</a>
+      <a href="#portofolio" class="hover:text-amber-400 transition">Portofolio</a>
+      <a href="#kalkulator" class="hover:text-amber-400 transition">Simulasi Harga</a>
+      <a href="#alur" class="hover:text-amber-400 transition">Alur Kerja</a>
+      <a href="#faq" class="hover:text-amber-400 transition">FAQ</a>
+    </nav>
+    <button @click="openModal()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-5 py-2.5 rounded-xl font-semibold text-sm transition shadow-lg shadow-amber-500/20">Daftar Sekarang</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="relative pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden border-b border-slate-800/60">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-500/10 via-slate-950 to-slate-950 -z-10"></div>
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <span class="inline-block px-4 py-1.5 mb-3 rounded-full text-xs font-semibold tracking-wide bg-amber-500/10 text-amber-400 border border-amber-500/20">🎉 Harga Promo Peluncuran</span>
+    <p x-show="promoText" x-cloak class="mb-6 text-sm text-slate-300">Promo berakhir dalam <strong class="text-amber-400 tabular-nums" x-text="promoText"></strong></p>
+    <div x-show="!promoText" class="mb-3"></div>
+    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight font-serif-custom text-white leading-tight mb-6">
+      Ubah Gagasan Anda Menjadi Buku Fisik, <span class="text-amber-400 italic">PDF & Web Book Interaktif</span>
+    </h1>
+    <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-4 leading-relaxed">
+      Mulai dari <strong class="text-amber-400">Rp 1.500.000</strong> untuk naskah di bawah 50 halaman, selesai dalam 7 hari. Tersedia sampai 200+ halaman dengan harga yang menyesuaikan.
+    </p>
+    <p class="text-sm text-slate-400 mb-10">Cocok untuk dai, ustaz, pendidik, dan praktisi parenting yang punya ilmu dan pengalaman tapi belum sempat menuliskannya menjadi buku.</p>
+    <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+      <button @click="openModal()" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-8 py-4 rounded-xl transition shadow-xl shadow-amber-500/20">Daftar & Amankan Harga Promo</button>
+      <a href="#contoh" class="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold px-8 py-4 rounded-xl transition text-center">Lihat Contoh Tampilan</a>
+    </div>
+  </div>
+</section>
+
+<!-- FITUR -->
+<section id="fitur" class="py-24 bg-slate-900/50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="text-3xl font-bold font-serif-custom text-white mb-4">Pilihan Format Sesuai Kebutuhan Era Digital</h2>
+      <p class="text-slate-400">Pilih format konvensional untuk penerbitan, atau tingkatkan keterlibatan pembaca dengan Web Book interaktif.</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl">
+        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 text-xl">📄</div>
+        <h3 class="text-2xl font-bold text-white mb-3">Naskah Buku Cetak & Format PDF</h3>
+        <p class="text-slate-400 leading-relaxed mb-6">Format siap cetak untuk penerbit, dibagikan internal perusahaan, atau dijual sebagai e-book.</p>
+        <ul class="space-y-3 text-sm text-slate-300">
+          <li>✓ Struktur bab komprehensif, dari 20 sampai 200+ halaman</li>
+          <li>✓ 100% hak cipta di tangan Anda (NDA)</li>
+          <li>✓ Penyelarasan gaya bahasa & audit konten</li>
+        </ul>
+      </div>
+      <div class="bg-slate-900 border border-amber-500/40 p-8 rounded-3xl relative shadow-xl shadow-amber-500/5">
+        <div class="absolute top-6 right-6 px-3 py-1 bg-amber-500 text-slate-950 text-xs font-bold rounded-full">Rekomendasi Modern</div>
+        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 text-xl">🌐</div>
+        <h3 class="text-2xl font-bold text-white mb-3">Interactive Web Book Platform</h3>
+        <p class="text-slate-400 leading-relaxed mb-6">Buku dalam bentuk aplikasi web privat/publik di Vercel/Cloudflare dengan fitur untuk kenyamanan pembaca.</p>
+        <ul class="space-y-3 text-sm text-slate-300">
+          <li>🔊 <strong>Text-to-Speech (TTS):</strong> pembaca bisa mendengarkan isi bab.</li>
+          <li>🌐 <strong>Multi-Bahasa:</strong> ganti bahasa secara instan.</li>
+          <li>📥 <strong>Unduh PDF:</strong> pembaca mengunduh versi PDF langsung dari web.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTOH TAMPILAN -->
+<section id="contoh" class="py-24 border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="text-3xl font-bold font-serif-custom text-white mb-4">Contoh Tampilan Hasil Akhir</h2>
+      <p class="text-slate-400">Ilustrasi tampilan yang akan Anda terima. Desain akhir disesuaikan dengan tema buku Anda.</p>
+    </div>
+    <div class="grid lg:grid-cols-3 gap-8 items-start">
+
+      <!-- Mockup 1: Sampul -->
+      <div>
+        <div class="mx-auto w-56 aspect-[3/4] rounded-r-2xl rounded-l-md bg-gradient-to-br from-amber-500 to-amber-700 p-6 flex flex-col justify-between shadow-2xl shadow-amber-500/20 border-l-8 border-amber-900">
+          <p class="text-slate-950/70 text-xs font-semibold">Seri Panduan Praktis</p>
+          <div>
+            <p class="font-serif-custom text-slate-950 text-2xl font-extrabold leading-tight">Judul Buku Anda di Sini</p>
+            <p class="text-slate-950/80 text-xs mt-3">Subjudul singkat yang menjelaskan isi buku</p>
+          </div>
+          <p class="text-slate-950 text-sm font-bold">Nama Penulis</p>
+        </div>
+        <h3 class="text-center font-bold text-white mt-6">Sampul Buku</h3>
+        <p class="text-center text-sm text-slate-400 mt-1">Desain sampul untuk cetak maupun e-book.</p>
+      </div>
+
+      <!-- Mockup 2: Halaman PDF -->
+      <div>
+        <div class="mx-auto w-full max-w-xs aspect-[3/4] bg-slate-100 rounded-md p-7 shadow-2xl text-slate-800 overflow-hidden">
+          <p class="text-[10px] text-slate-500 mb-3">BAB 3</p>
+          <p class="font-serif-custom text-xl font-bold text-slate-900 mb-4 leading-snug">Membangun Kebiasaan Komunikasi yang Baik</p>
+          <div class="space-y-2">
+            <div class="h-2 bg-slate-300 rounded w-full"></div><div class="h-2 bg-slate-300 rounded w-full"></div>
+            <div class="h-2 bg-slate-300 rounded w-11/12"></div><div class="h-2 bg-slate-300 rounded w-full"></div>
+            <div class="h-2 bg-slate-300 rounded w-3/4"></div>
+          </div>
+          <div class="my-4 border-l-4 border-amber-500 bg-amber-100 p-3 text-[11px] text-slate-700">Contoh kasus: kutipan atau kotak penekanan pada halaman.</div>
+          <div class="space-y-2">
+            <div class="h-2 bg-slate-300 rounded w-full"></div><div class="h-2 bg-slate-300 rounded w-10/12"></div>
+            <div class="h-2 bg-slate-300 rounded w-full"></div><div class="h-2 bg-slate-300 rounded w-2/3"></div>
+          </div>
+          <p class="text-center text-[10px] text-slate-500 mt-6">— 42 —</p>
+        </div>
+        <h3 class="text-center font-bold text-white mt-6">Halaman Isi PDF</h3>
+        <p class="text-center text-sm text-slate-400 mt-1">Tata letak rapi dengan bab, kutipan, dan nomor halaman.</p>
+      </div>
+
+      <!-- Mockup 3: Web Book -->
+      <div>
+        <div class="mx-auto w-full max-w-sm rounded-2xl border border-slate-700 bg-slate-900 shadow-2xl overflow-hidden">
+          <div class="flex items-center gap-1.5 px-4 py-3 bg-slate-800 border-b border-slate-700">
+            <span class="w-2.5 h-2.5 rounded-full bg-red-400"></span><span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span><span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+            <span class="ml-3 text-[10px] text-slate-400 bg-slate-950 rounded px-3 py-1 flex-1 truncate">bukuanda.vercel.app/bab3</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-semibold text-amber-400">Bab 3 dari 12</span>
+              <span class="text-[11px] bg-slate-950 border border-slate-700 rounded-md px-2 py-1 text-slate-300">🌐 Indonesia ▾</span>
+            </div>
+            <p class="font-serif-custom text-lg font-bold text-white mb-3 leading-snug">Membangun Kebiasaan Komunikasi yang Baik</p>
+            <div class="space-y-2 mb-4">
+              <div class="h-2 bg-slate-700 rounded w-full"></div><div class="h-2 bg-slate-700 rounded w-11/12"></div><div class="h-2 bg-slate-700 rounded w-4/5"></div>
+            </div>
+            <div class="flex items-center gap-3 bg-slate-950 border border-slate-700 rounded-xl p-3 mb-4">
+              <span class="w-8 h-8 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center text-xs">▶</span>
+              <div class="flex-1"><div class="h-1.5 bg-slate-700 rounded-full"><div class="h-1.5 bg-amber-500 rounded-full w-2/5"></div></div><p class="text-[10px] text-slate-400 mt-1.5">🔊 Dengarkan bab ini (TTS)</p></div>
+            </div>
+            <div class="text-center text-xs font-semibold bg-amber-500 text-slate-950 rounded-lg py-2.5">📥 Unduh PDF</div>
+          </div>
+        </div>
+        <h3 class="text-center font-bold text-white mt-6">Interactive Web Book</h3>
+        <p class="text-center text-sm text-slate-400 mt-1">Pembaca bisa mendengarkan, ganti bahasa, dan unduh PDF.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTOFOLIO -->
+<section id="portofolio" class="py-24 border-t border-slate-800 bg-slate-900/50"
+  x-data="{works:[
+    {t:'Komunikasi Efektif Ala Nabi',d:'Web book panduan pola komunikasi berdasarkan sirah Nabi.',u:'https://my-book-komunikasi.vercel.app/',g:'Seri Mengenal Nabi'},
+    {t:'Diplomasi Politik Ala Nabi',d:'Web book strategi diplomasi dan politik Rasulullah.',u:'https://diplomasi-politik-nabi.vercel.app/',g:'Seri Mengenal Nabi'},
+    {t:'Manajemen Kepemimpinan Ala Nabi',d:'Web book prinsip manajemen dan kepemimpinan Rasulullah.',u:'https://kaffahmedia-e-book.web.app/',g:'Seri Mengenal Nabi'},
+    {t:'Algoritma Waktu',d:'Menggapai keberkahan di tengah kesibukan.',u:'https://algoritma-waktu2.vercel.app/',g:'Seri Mengenal Nabi'},
+    {t:'Web Book UMKM',d:'Literasi digital untuk pemberdayaan UMKM.',u:'https://web-book-umkm.vercel.app/',g:'Bisnis'},
+    {t:'Kitab Talim',d:'Buku digital Kitab Talim.',u:'https://kitabtalim.kaffahmedia.web.id/',g:'Buku digital Islami'},
+    {t:'Kitab Waraqat',d:'Buku digital dan syarah Waraqat.',u:'https://waraqat.kaffahmedia.web.id/',g:'Buku digital Islami'},
+    {t:'Panduan Ibadah',d:'Buku digital panduan ibadah lengkap.',u:'https://panduanibadah.kaffahmedia.web.id/',g:'Buku digital Islami'}
+  ]}">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold font-serif-custom text-white mb-4">Contoh Karya Web Book</h2>
+      <p class="text-slate-400">Buku digital yang sudah dirilis dan bisa Anda buka langsung. Rasakan sendiri pengalaman membacanya.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <template x-for="w in works" :key="w.u">
+        <a :href="w.u" target="_blank" rel="noopener" class="group flex flex-col bg-slate-900 border border-slate-800 hover:border-amber-500/60 rounded-2xl p-5 transition">
+          <span class="text-xs font-semibold text-amber-400 mb-3" x-text="w.g"></span>
+          <h3 class="font-bold text-white mb-2 leading-snug" x-text="w.t"></h3>
+          <p class="text-sm text-slate-400 leading-relaxed flex-1" x-text="w.d"></p>
+          <span class="mt-4 text-sm font-semibold text-amber-400 group-hover:underline">Buka web book</span>
+        </a>
+      </template>
+    </div>
+    <p class="text-center text-xs text-slate-500 mt-8">Proyek untuk klien tidak ditampilkan karena terikat perjanjian kerahasiaan (NDA).</p>
+  </div>
+</section>
+
+<!-- UNDUH GRATIS -->
+<section id="gratis" class="py-24 border-t border-slate-800">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold font-serif-custom text-white mb-4">Mulai Gratis Sebelum Memesan</h2>
+      <p class="text-slate-400">Dua materi praktis untuk calon penulis buku parenting dan religi. Gratis, tanpa kewajiban memesan.</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <template x-for="f in freebies" :key="f.id">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-7 flex flex-col">
+          <h3 class="text-xl font-bold text-white mb-2" x-text="f.t"></h3>
+          <p class="text-sm text-slate-400 leading-relaxed flex-1 mb-5" x-text="f.d"></p>
+          <button @click="openLead(f)" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3 rounded-xl transition">Unduh gratis</button>
+        </div>
+      </template>
+    </div>
+  </div>
+</section>
+
+<!-- KALKULATOR -->
+<section id="kalkulator" class="py-24 border-t border-slate-800 bg-slate-900/50">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold font-serif-custom text-white mb-4">Simulasi Harga Promo</h2>
+      <p class="text-slate-400">Pilih format dan jumlah halaman. Waktu pengerjaan menyesuaikan, mulai 7 hari hingga 30 hari.</p>
+    </div>
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-12 shadow-2xl">
+      <div class="grid md:grid-cols-2 gap-10">
+        <div class="space-y-8">
+          <div>
+            <label class="block text-sm font-semibold text-slate-300 mb-3">1. Pilih format buku</label>
+            <div class="grid grid-cols-2 gap-3">
+              <div @click="formatType='pdf'" :class="formatType==='pdf'?'border-amber-500 bg-amber-500/10 text-white':'border-slate-800 bg-slate-950 text-slate-300'" class="border rounded-xl p-4 text-center cursor-pointer transition">
+                <p class="font-bold text-sm">Buku Cetak / PDF</p><p class="text-xs text-slate-400 mt-1">Naskah standar</p>
+              </div>
+              <div @click="formatType='webbook'" :class="formatType==='webbook'?'border-amber-500 bg-amber-500/10 text-white':'border-slate-800 bg-slate-950 text-slate-300'" class="border rounded-xl p-4 text-center cursor-pointer transition">
+                <p class="font-bold text-sm">Interactive Web Book</p><p class="text-xs text-slate-400 mt-1">Fitur digital lengkap</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-300 mb-3">2. Pilih jumlah halaman</label>
+            <div class="space-y-3">
+              <template x-for="t in tiers" :key="t.id">
+                <div @click="selectedId=t.id" :class="selectedId===t.id?'border-amber-500 bg-amber-500/10 text-white':'border-slate-800 bg-slate-950 text-slate-300 hover:border-slate-700'" class="border rounded-xl p-4 cursor-pointer transition flex justify-between items-center gap-3">
+                  <div>
+                    <p class="font-bold" x-text="t.name"></p>
+                    <p class="text-xs text-slate-400" x-text="t.pages + ' halaman · ' + t.time"></p>
+                  </div>
+                  <div class="text-right shrink-0">
+                    <p class="text-xs text-slate-500 line-through" x-text="rp(price(t).normal)"></p>
+                    <p class="text-sm font-semibold text-amber-400" x-text="rp(price(t).promo)"></p>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </div>
+          <div x-show="formatType==='webbook'" x-cloak class="text-xs text-slate-300 space-y-1.5 bg-slate-950 p-4 rounded-xl border border-slate-800">
+            <p class="font-semibold text-amber-400 mb-1">Termasuk di Web Book:</p>
+            <p>✓ Audio Text-to-Speech (TTS)</p><p>✓ Menu multi-bahasa</p><p>✓ Tombol unduh PDF untuk pembaca</p><p>✓ Setup hosting (Vercel/Cloudflare)</p>
+          </div>
+        </div>
+
+        <div class="bg-slate-950 border border-slate-800 rounded-2xl p-8 flex flex-col justify-between">
+          <div>
+            <h3 class="text-lg font-bold text-white mb-6 border-b border-slate-800 pb-4">Ringkasan Proyek</h3>
+            <div class="space-y-4 text-sm">
+              <div class="flex justify-between"><span class="text-slate-400">Format:</span><span class="font-semibold text-white" x-text="formatLabel()"></span></div>
+              <div class="flex justify-between"><span class="text-slate-400">Paket:</span><span class="font-semibold text-white" x-text="sel().name"></span></div>
+              <div class="flex justify-between"><span class="text-slate-400">Jumlah halaman:</span><span class="font-semibold text-white" x-text="sel().pages"></span></div>
+              <div class="flex justify-between"><span class="text-slate-400">Waktu pengerjaan:</span><span class="font-semibold text-white" x-text="sel().time"></span></div>
+              <div class="pt-4 border-t border-slate-800">
+                <p class="text-slate-400 mb-2">Yang Anda dapatkan:</p>
+                <ul class="space-y-1.5 text-slate-300">
+                  <template x-for="i in includes()" :key="i"><li class="flex gap-2"><span class="text-amber-400">✓</span><span x-text="i"></span></li></template>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 pt-6 border-t border-slate-800">
+            <p class="text-xs text-slate-500 line-through" x-text="'Harga normal ' + rp(price(sel()).normal)"></p>
+            <span class="text-xs text-slate-400 block">Harga promo</span>
+            <span class="text-3xl md:text-4xl font-extrabold text-amber-400 font-serif-custom" x-text="rp(price(sel()).promo)"></span>
+            <p class="text-xs text-emerald-400 mt-1" x-text="'Hemat ' + rp(price(sel()).normal - price(sel()).promo)"></p>
+            <button @click="openModal()" class="mt-6 block w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-4 rounded-xl text-center transition shadow-lg shadow-amber-500/20">Daftar Sekarang</button>
+            <p class="text-xs text-center text-slate-500 mt-3">Konsultasi awal gratis untuk memetakan struktur naskah Anda.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALUR -->
+<section id="alur" class="py-24 border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="text-3xl font-bold font-serif-custom text-white mb-4">Alur Pengerjaan Sederhana</h2>
+      <p class="text-slate-400">Dari konsep awal hingga siap dipublikasikan.</p>
+    </div>
+    <div class="grid md:grid-cols-4 gap-6">
+      <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl"><span class="text-amber-400 font-bold text-lg mb-2 block">01. Diskusi & Konsep</span><p class="text-sm text-slate-400">Menentukan format, target pembaca, dan struktur bab.</p></div>
+      <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl"><span class="text-amber-400 font-bold text-lg mb-2 block">02. Penulisan Naskah</span><p class="text-sm text-slate-400">Penulisan isi buku dengan kedalaman materi dan gaya bahasa pilihan.</p></div>
+      <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl"><span class="text-amber-400 font-bold text-lg mb-2 block">03. Integrasi Fitur</span><p class="text-sm text-slate-400">Tata letak PDF atau pemrograman Web Book (TTS & multi-bahasa).</p></div>
+      <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl"><span class="text-amber-400 font-bold text-lg mb-2 block">04. Peluncuran</span><p class="text-sm text-slate-400">Serah terima file master PDF atau link web book dengan hak cipta penuh.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TENTANG -->
+<section id="tentang" class="py-24 border-t border-slate-800">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="grid md:grid-cols-[auto_1fr] gap-10 items-center bg-slate-900 border border-slate-800 rounded-3xl p-8 md:p-12">
+      <div class="mx-auto">
+        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhm2I5NiUGgSNMOTRZD0p9pPuL20PBk0dwOaaFCk0JYTR8lj65JDhEOhluz2Mx_lQ-OAxuSmc_bZYJBt0x9Lr6tpuA7-qq-uMINEbZLwbVswEhXBqEYgLV96Zictq8vOnwMi73b1UE9LrUoSKvrF5ylBRNQN18kEMQhuuXdEGoL7hheRrll01tYLeJGsMTT=s150"
+             alt="Yana Abu Fillah" loading="lazy" onerror="this.style.display='none'"
+             class="w-40 h-40 rounded-full object-cover border-2 border-amber-500 p-1">
+      </div>
+      <div>
+        <h2 class="text-3xl font-bold font-serif-custom text-white mb-1">Tentang Kami</h2>
+        <p class="text-sm text-amber-400 font-semibold mb-4">Yana Abu Fillah, pendiri KaffahMedia Digital Production</p>
+        <p class="text-slate-300 leading-relaxed mb-3">Kami membantu mengubah gagasan menjadi buku yang rapi dan siap dibaca, baik sebagai naskah PDF maupun web book interaktif. Penulisan naskah dan pembuatan platform bacanya dikerjakan dalam satu tempat, sehingga Anda tidak perlu mengurus dua pihak.</p>
+        <p class="text-slate-300 leading-relaxed mb-5">Dengan pengalaman bertahun-tahun di pengembangan fullstack dan otomatisasi cloud, setiap web book dibangun aman, cepat dibuka, dan mudah dibaca dari ponsel. Seluruh proyek klien dijaga kerahasiaannya.</p>
+        <div class="flex flex-wrap gap-3 text-sm">
+          <a href="https://kaffahmedia.web.id/" target="_blank" rel="noopener" class="border border-slate-700 hover:border-amber-500 text-slate-200 px-4 py-2 rounded-lg transition">Profil lengkap</a>
+          <a href="https://linkedin.com/in/yana-royana-43133a2b3/" target="_blank" rel="noopener" class="border border-slate-700 hover:border-amber-500 text-slate-200 px-4 py-2 rounded-lg transition">LinkedIn</a>
+          <a href="https://instagram.com/abu_fillah24" target="_blank" rel="noopener" class="border border-slate-700 hover:border-amber-500 text-slate-200 px-4 py-2 rounded-lg transition">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-24 border-t border-slate-800 bg-slate-900/50">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <h2 class="text-3xl md:text-4xl font-bold font-serif-custom text-white mb-4">Pertanyaan yang Sering Diajukan</h2>
+      <p class="text-slate-400">Jawaban lengkap seputar format, harga, waktu, hak cipta, dan cara pemesanan.</p>
+    </div>
+
+    <h3 class="text-sm font-semibold text-amber-400 mb-3">Format & fitur</h3>
+    <div class="space-y-3 mb-10">
+      <details class="group bg-slate-900 border border-slate-800 rounded-2xl open:border-amber-500/40">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none px-6 py-5 font-semibold text-white"><span>Apa bedanya Buku Cetak / PDF dengan Interactive Web Book?</span><span class="text-amber-400 transition group-open:rotate-45 text-xl">+</span></summary>
+        <div class="px-6 pb-5 text-sm text-slate-300 leading-relaxed space-y-2">
+          <p><strong>Buku Cetak / PDF</strong> adalah naskah dengan tata letak rapi (sampul, daftar isi, bab, nomor halaman) yang bisa dicetak, dikirim ke penerbit, atau dijual sebagai e-book.</p>
+          <p><strong>Interactive Web Book</strong> adalah buku yang dibaca lewat browser dengan tautan sendiri. Pembaca bisa mendengarkan isi bab (Text-to-Speech), mengganti bahasa, dan mengunduh PDF langsung dari web.</p>
+        </div>
+      </details>
+      <details class="group bg-slate-900 border border-slate-800 rounded-2xl open:border-amber-500/40">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none px-6 py-5 font-semibold text-white"><span>Bagaimana cara kerja fitur Text-to-Speech dan multi-bahasa?</span><span class="text-amber-400 transition group-open:rotate-45 text-xl">+</span></summary>
+        <div class="px-6 pb-5 text-sm text-slate-300 leading-relaxed space-y-2">
+          <p>Tombol putar di setiap bab membacakan teks secara otomatis, sehingga buku bisa dinikmati sambil berkendara atau beraktivitas lain. Menu bahasa memungkinkan pembaca berpindah bahasa tanpa membuka halaman baru.</p>
+          <p>Terjemahan otomatis cocok untuk memahami isi secara umum. Kalau buku Anda membutuhkan terjemahan yang sangat presisi, sampaikan saat konsultasi.</p>
+        </div>
+      </details>
+      <details class="group bg-slate-900 border border-slate-800 rounded-2xl open:border-amber-500/40">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none px-6 py-5 font-semibold text-white"><span>Web Book diletakkan di mana, dan apakah bisa dibuat privat?</span><span class="text-amber-400 transition group-open:rotate-45 text-xl">+</span></summary>
+        <div class="px-6 pb-5 text-sm text-slate-300 leading-relaxed">
+          <p>Web Book dipasang di platform hosting modern seperti Vercel atau Cloudflare, dan biaya setup sudah termasuk di paket. Anda bisa memilih publik (siapa pun dengan tautan bisa membaca) atau privat untuk kalangan tertentu, misalnya peserta kelas atau anggota perusahaan.</p>
+        </div>
+      </details>
+    </div>
+
+    <h3 class="text-sm font-semibold text-amber-400 mb-3">Harga & waktu pengerjaan</h3>
+    <div class="space-y-3 mb-10">
+      <details class="group bg-slate-900 border border-slate-800 rounded-2xl open:border-amber-500/40">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none px-6 py-5 font-semibold text-white"><span>Berapa harga layanan ini, dan apa maksud harga promo?</span><span class="text-amber-400 transition group-open:rotate-45 text-xl">+</span></summary>
+        <div class="px-6 pb-5 text-sm text-slate-300 leading-relaxed space-y-2">
+          <p>Harga bergantung pada format dan jumlah halaman. Buku Cetak / PDF mulai Rp 1.500.000 (20-49 halaman) sampai Rp 6.500.000 (150-200+ halaman). Interactive Web Book mulai Rp 2.500.000 sampai Rp 8.500.000.</p>
+          <p>Harga yang tampil adalah harga promo peluncuran, jauh di bawah harga normal yang dicoret di kalkulator. Harga promo berlaku untuk pendaftaran selama masa promosi dan kuotanya terbatas.</p>
+        </div>
+      </details>
+      <details class="group bg-slate-900 border border-slate-800 rounded-2xl open:border-amber-500/40">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none px-6 py-5 font-semibold text-white"><span>Berapa lama pengerjaannya?</span><span class="text-amber-400 transition group-open:rotate-45 text-xl">+</span></summary>
+        <div class="px-6 pb-5 text-sm text-slate-300 leading-relaxed space-y-2">
+          <p>Waktu mengikuti jumlah halaman: 20-49 halaman sekitar 7 hari, 50-99 halaman 14 hari, 100-149 halaman 21 hari, dan 150-200+ halaman 30 hari.</p>
+          <p>Hitungan dimulai setelah struktur bab disepakati dan materi awal dari Anda kami terima. Keterlambatan materi atau revisi besar di tengah jalan dapat menggeser jadwal.</p>
+        </div>
+      </details>
+      <details class="group bg-slate-900 border border-slate-800 rounded-2xl open:border-amber-500/40">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none px-6 py-5 font-semibold text-white"><span>Bagaimana kalau jumlah halaman saya di antara dua paket, atau lebih dari 200?</span><span class="text-amber-400 transition group-open:rotate-45 text-xl">+</span></summary>
+        <div class="px-6 pb-5 text-sm text-slate-300 leading-relaxed">
+          <p>Pilih paket yang rentangnya paling mendekati. Jika kebutuhan Anda melebihi 200 halaman atau berada di perbatasan dua paket, daftar saja dan tuliskan target halaman di formulir. Harga dan waktu akan disesuaikan sebelum pekerjaan dimulai, tanpa kewajiban apa pun.</p>
+        </div>
+      </details>
+      <details class="group bg-slate-900 border border-slate-800 rounded-2xl open:border-amber-500/40">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none px-6 py-5 font-semibold text-white"><span>Bagaimana sistem pembayaran dan revisi?</span><span class="text-amber-400 transition group-open:rotate-45 text-xl">+</span></summary>
+        <div class="px-6 pb-5 text-sm text-slate-300 leading-relaxed">
+          <p>Skema pembayaran (uang muka dan pelunasan) serta jumlah putaran revisi disepakati secara tertulis pada tahap konsultasi, sebelum pekerjaan dimulai, sehingga tidak ada biaya yang muncul belakangan.</p>
+        </div>
+      </details>
+    </div>
+
+    <h3 class="text-sm font-semibold text-amber-400 mb-3">Naskah, hak cipta & kerahasiaan</h3>
+    <div class="space-y-3 mb-10">
+      <details class="group bg-slate-900 border border-slate-800 rounded-2xl open:border-amber-500/40">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none px-6 py-5 font-semibold text-white"><span>Apakah buku ini sepenuhnya milik saya? Apakah nama saya yang tercantum sebagai penulis?</span><span class="text-amber-400 transition group-open:rotate-45 text-xl">+</span></summary>
+        <div class="px-6 pb-5 text-sm text-slate-300 leading-relaxed space-y-2">
+          <p>Ya. Pada layanan ghostwriting, hak cipta penuh ada di tangan Anda dan nama Anda yang tercantum sebagai penulis. Kami bekerja di balik layar dan tidak mengklaim karya tersebut.</p>
+          <p>Seluruh proses dilindungi perjanjian kerahasiaan (NDA), jadi ide, materi, dan keterlibatan kami tidak akan dipublikasikan.</p>
+        </div>
+      </details>
+      <details class="group bg-slate-900 border border-slate-800 rounded-2xl open:border-amber-500/40">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none px-6 py-5 font-semibold text-white"><span>Apa yang perlu saya siapkan sebelum mendaftar?</span><span class="text-amber-400 transition group-open:rotate-45 text-xl">+</span></summary>
+        <div class="px-6 pb-5 text-sm text-slate-300 leading-relaxed space-y-2">
+          <p>Cukup gagasan awal. Idealnya Anda menyiapkan judul atau tema, target pembaca, dan poin-poin yang ingin disampaikan. Catatan kasar, rekaman suara, atau materi presentasi juga sangat membantu.</p>
+          <p>Belum punya struktur? Tidak masalah, kami bantu memetakannya saat konsultasi awal yang gratis.</p>
+        </div>
+      </details>
+      <details class="group bg-slate-900 border border-slate-800 rounded-2xl open:border-amber-500/40">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none px-6 py-5 font-semibold text-white"><span>Apakah naskah PDF bisa dikirim ke penerbit atau dicetak?</span><span class="text-amber-400 transition group-open:rotate-45 text-xl">+</span></summary>
+        <div class="px-6 pb-5 text-sm text-slate-300 leading-relaxed">
+          <p>Bisa. Naskah disusun dengan struktur bab dan tata letak yang siap dibawa ke penerbit atau percetakan. Anda menerima file master PDF yang dapat dipakai sebagai e-book maupun bahan cetak.</p>
+        </div>
+      </details>
+    </div>
+
+    <h3 class="text-sm font-semibold text-amber-400 mb-3">Cara mendaftar</h3>
+    <div class="space-y-3">
+      <details class="group bg-slate-900 border border-slate-800 rounded-2xl open:border-amber-500/40">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer list-none px-6 py-5 font-semibold text-white"><span>Bagaimana cara mendaftar, dan apa yang terjadi setelahnya?</span><span class="text-amber-400 transition group-open:rotate-45 text-xl">+</span></summary>
+        <div class="px-6 pb-5 text-sm text-slate-300 leading-relaxed space-y-2">
+          <p>Klik tombol <strong>Daftar Sekarang</strong>, isi nama, nomor WhatsApp, email, dan data buku (judul/tema, format, jumlah halaman), lalu kirim. Data Anda otomatis terangkai menjadi pesan WhatsApp ke kami.</p>
+          <p>Setelah itu kami menghubungi Anda untuk konsultasi awal, menyepakati struktur bab, harga, dan jadwal, baru pekerjaan dimulai.</p>
+          <p class="pt-2"><button @click="openModal()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-6 py-3 rounded-xl transition">Daftar Sekarang</button></p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-12 border-t border-slate-800 text-center text-sm text-slate-500">
+  <div class="max-w-7xl mx-auto px-6">
+    <p class="mb-2 text-slate-400 font-medium">Kaffahmedia Studio — Professional Ghostwriting, PDF & Web Book Platform</p>
+    <p>&copy; 2026 Seluruh Hak Cipta Dilindungi Undang-Undang.</p>
+  </div>
+</footer>
+
+<!-- MODAL UNDUH GRATIS -->
+<div x-show="lead.open" x-cloak x-transition.opacity class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm" @click.self="lead.open=false" role="dialog" aria-modal="true">
+  <div class="w-full max-w-md bg-slate-900 border border-slate-700 rounded-3xl p-7 shadow-2xl">
+    <div class="flex items-start justify-between mb-4">
+      <h3 class="text-xl font-bold font-serif-custom text-white" x-text="lead.item ? lead.item.t : ''"></h3>
+      <button @click="lead.open=false" class="text-slate-400 hover:text-white text-2xl leading-none" aria-label="Tutup">&times;</button>
+    </div>
+    <form x-show="!lead.done" @submit.prevent="submitLead()" class="space-y-4">
+      <p class="text-sm text-slate-400">Isi data berikut untuk membuka materi.</p>
+      <div><label class="block text-sm font-medium text-slate-300 mb-1.5" for="l-nama">Nama</label>
+        <input id="l-nama" x-model="lead.nama" required type="text" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 focus:outline-none rounded-xl px-4 py-3 text-sm"></div>
+      <div><label class="block text-sm font-medium text-slate-300 mb-1.5" for="l-wa">No. WhatsApp</label>
+        <input id="l-wa" x-model="lead.wa" required type="tel" inputmode="tel" pattern="[0-9+\s\-]{9,16}" placeholder="08xxxxxxxxxx" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 focus:outline-none rounded-xl px-4 py-3 text-sm"></div>
+      <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3.5 rounded-xl transition">Buka materi</button>
+    </form>
+    <div x-show="lead.done" class="space-y-4 text-center">
+      <p class="text-sm text-slate-300">Terima kasih, <span x-text="lead.nama"></span>. Materi siap dibuka.</p>
+      <a :href="lead.item ? lead.item.file : '#'" target="_blank" class="block bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3.5 rounded-xl transition">Buka materi</a>
+      <p class="text-xs text-slate-500">Di halaman materi, tekan tombol "Simpan sebagai PDF" untuk menyimpannya.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TOMBOL WHATSAPP MELAYANG -->
+<a x-show="!modal" href="https://wa.me/6285794506290?text=Halo,%20saya%20ingin%20konsultasi%20soal%20pembuatan%20buku" target="_blank" rel="noopener" aria-label="Chat WhatsApp"
+   class="fixed z-30 bottom-5 right-5 flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold text-sm px-4 py-3 rounded-full shadow-lg shadow-emerald-500/30 transition">
+  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.8 2.1 1.2 1 2.2 1.3 2.5 1.5.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.8-.1 1.4Z"/></svg>
+  <span class="hidden sm:inline">Chat WhatsApp</span>
+</a>
+
+<!-- MODAL PENDAFTARAN -->
+<div x-show="modal" x-cloak x-transition.opacity class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm" @click.self="modal=false" role="dialog" aria-modal="true" aria-labelledby="judul-modal">
+  <div class="w-full max-w-lg max-h-[92vh] overflow-y-auto bg-slate-900 border border-slate-700 rounded-3xl p-6 md:p-8 shadow-2xl">
+    <div class="flex items-start justify-between mb-5">
+      <div>
+        <h3 id="judul-modal" class="text-2xl font-bold font-serif-custom text-white">Daftar Proyek Buku</h3>
+        <p class="text-sm text-slate-400 mt-1">Isi data berikut, kami lanjutkan lewat WhatsApp.</p>
+      </div>
+      <button @click="modal=false" class="text-slate-400 hover:text-white text-2xl leading-none" aria-label="Tutup">&times;</button>
+    </div>
+    <form @submit.prevent="submitForm()" class="space-y-4">
+      <div><label class="block text-sm font-medium text-slate-300 mb-1.5" for="f-nama">Nama lengkap</label>
+        <input id="f-nama" x-model="form.nama" required type="text" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 focus:outline-none rounded-xl px-4 py-3 text-sm"></div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div><label class="block text-sm font-medium text-slate-300 mb-1.5" for="f-wa">No. WhatsApp</label>
+          <input id="f-wa" x-model="form.wa" required type="tel" inputmode="tel" pattern="[0-9+\s\-]{9,16}" placeholder="08xxxxxxxxxx" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 focus:outline-none rounded-xl px-4 py-3 text-sm"></div>
+        <div><label class="block text-sm font-medium text-slate-300 mb-1.5" for="f-email">Email</label>
+          <input id="f-email" x-model="form.email" required type="email" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 focus:outline-none rounded-xl px-4 py-3 text-sm"></div>
+      </div>
+      <div class="border-t border-slate-800 pt-4"><p class="text-sm font-semibold text-amber-400 mb-3">Data buku yang ingin dibuat</p>
+        <div class="space-y-4">
+          <div><label class="block text-sm font-medium text-slate-300 mb-1.5" for="f-judul">Judul / tema buku</label>
+            <input id="f-judul" x-model="form.judul" required type="text" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 focus:outline-none rounded-xl px-4 py-3 text-sm"></div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div><label class="block text-sm font-medium text-slate-300 mb-1.5" for="f-format">Format</label>
+              <select id="f-format" x-model="formatType" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 focus:outline-none rounded-xl px-4 py-3 text-sm">
+                <option value="pdf">Buku Cetak / PDF</option><option value="webbook">Interactive Web Book</option></select></div>
+            <div><label class="block text-sm font-medium text-slate-300 mb-1.5" for="f-hal">Jumlah halaman</label>
+              <select id="f-hal" x-model="selectedId" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 focus:outline-none rounded-xl px-4 py-3 text-sm">
+                <template x-for="t in tiers" :key="t.id"><option :value="t.id" x-text="t.pages + ' hlm (' + t.time + ')'"></option></template></select></div>
+          </div>
+          <div><label class="block text-sm font-medium text-slate-300 mb-1.5" for="f-catatan">Gambaran isi & target pembaca <span class="text-slate-500">(opsional)</span></label>
+            <textarea id="f-catatan" x-model="form.catatan" rows="3" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 focus:outline-none rounded-xl px-4 py-3 text-sm"></textarea></div>
+        </div>
+      </div>
+      <div class="flex justify-between items-center bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm">
+        <span class="text-slate-400">Estimasi harga promo</span><span class="font-bold text-amber-400" x-text="rp(price(sel()).promo)"></span>
+      </div>
+      <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-4 rounded-xl transition">Kirim Pendaftaran via WhatsApp</button>
+    </form>
+  </div>
+</div>
+
+<script>
+function bookCalculator(){
+  return {
+    formatType:'webbook',
+    selectedId:'signature',
+    modal:false,
+    form:{nama:'',wa:'',email:'',judul:'',catatan:''},
+    // pdf & web: [harga promo, harga normal]
+    tiers:[
+      {id:'mini',name:'Paket Mini',pages:'20-49',time:'7 hari',pdf:[1500000,2500000],web:[2500000,3800000]},
+      {id:'basic',name:'Paket Basic',pages:'50-99',time:'14 hari',pdf:[3000000,5000000],web:[4500000,7000000]},
+      {id:'standard',name:'Paket Standard',pages:'100-149',time:'21 hari',pdf:[4500000,7500000],web:[6500000,10000000]},
+      {id:'signature',name:'Paket Signature',pages:'150-200+',time:'30 hari',pdf:[6500000,10500000],web:[8500000,13500000]}
+    ],
+    sel(){return this.tiers.find(t=>t.id===this.selectedId)||this.tiers[3]},
+    price(t){const p=this.formatType==='pdf'?t.pdf:t.web;return{promo:p[0],normal:p[1]}},
+    formatLabel(){return this.formatType==='pdf'?'Buku Cetak / PDF':'Interactive Web Book'},
+    rp(v){return new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(v)},
+    // ATUR TANGGAL AKHIR PROMO DI SINI (hanya tampil jika belum lewat)
+    promoEnd:new Date('2026-11-30T23:59:59+07:00'),
+    promoText:'',
+    init(){this.tick();setInterval(()=>this.tick(),1000)},
+    tick(){
+      const ms=this.promoEnd-new Date();
+      if(ms<=0){this.promoText='';return}
+      const d=Math.floor(ms/864e5),h=Math.floor(ms%864e5/36e5),m=Math.floor(ms%36e5/6e4),s=Math.floor(ms%6e4/1e3);
+      this.promoText=`${d} hari ${h} jam ${m} menit ${s} detik`;
+    },
+    includes(){
+      const t=this.sel();
+      const base=['Konsultasi awal & penyusunan struktur bab','Penulisan naskah ('+t.pages+' halaman)','Penyelarasan gaya bahasa & audit konten','Desain sampul & daftar isi','File master PDF siap cetak/e-book','Hak cipta penuh & perjanjian kerahasiaan (NDA)'];
+      const web=['Web Book interaktif dengan tautan sendiri','Audio Text-to-Speech (TTS)','Menu multi-bahasa','Tombol unduh PDF untuk pembaca','Setup hosting (Vercel/Cloudflare)'];
+      return this.formatType==='pdf'?base:base.concat(web);
+    },
+    freebies:[
+      {id:'outline',t:'Template Outline Buku Nonfiksi',d:'Kerangka 12 bab siap isi, dengan contoh untuk buku parenting dan religi. Susun ide Anda menjadi struktur buku dalam satu sore.',file:'template-outline-buku.html'},
+      {id:'checklist',t:'Checklist Sebelum Menyewa Ghostwriter',d:'Daftar persiapan arah buku, bahan, penilaian penulis, dan kesepakatan tertulis, termasuk catatan khusus untuk buku religi dan parenting.',file:'checklist-sebelum-sewa-ghostwriter.html'}
+    ],
+    lead:{open:false,item:null,nama:'',wa:'',done:false},
+    openLead(f){this.lead={open:true,item:f,nama:'',wa:'',done:false}},
+    submitLead(){
+      const l=this.lead;
+      const msg=`Halo, saya mengunduh materi gratis "${l.item.t}".\n\nNama: ${l.nama}\nWhatsApp: ${l.wa}`;
+      window.open('https://wa.me/6285794506290?text='+encodeURIComponent(msg),'_blank');
+      l.done=true;
+    },
+    openModal(){this.modal=true},
+    submitForm(){
+      const t=this.sel(), f=this.form;
+      const msg=`Halo, saya ingin mendaftar layanan pembuatan buku.\n\nNama: ${f.nama}\nWhatsApp: ${f.wa}\nEmail: ${f.email}\n\nJudul/tema: ${f.judul}\nFormat: ${this.formatLabel()}\nJumlah halaman: ${t.pages} (${t.name})\nWaktu: ${t.time}\nEstimasi harga promo: ${this.rp(this.price(t).promo)}\nCatatan: ${f.catatan||'-'}`;
+      window.open('https://wa.me/6285794506290?text='+encodeURIComponent(msg),'_blank');
+      this.modal=false;
+    }
+  }
+}
+</script>
+</body>
+</html>

@@ -208,17 +208,18 @@ body{font-family:'Plus Jakarta Sans',sans-serif}
   <div class="max-w-4xl mx-auto px-6">
     <div class="text-center max-w-2xl mx-auto mb-12">
       <h2 class="text-3xl md:text-4xl font-bold font-serif-custom text-white mb-4">Mulai Gratis Sebelum Memesan</h2>
-      <p class="text-slate-400">Dua materi praktis untuk calon penulis buku parenting dan religi. Gratis, tanpa kewajiban memesan.</p>
+      <p class="text-slate-400">Tiga materi praktis untuk membantu Anda merancang buku dan menyiapkan konsultasi. Gratis dan bisa dibuka tanpa mengisi formulir.</p>
     </div>
-    <div class="grid md:grid-cols-2 gap-6">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       <template x-for="f in freebies" :key="f.id">
         <div class="bg-slate-900 border border-slate-800 rounded-2xl p-7 flex flex-col">
           <h3 class="text-xl font-bold text-white mb-2" x-text="f.t"></h3>
           <p class="text-sm text-slate-400 leading-relaxed flex-1 mb-5" x-text="f.d"></p>
-          <button @click="openLead(f)" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3 rounded-xl transition">Unduh gratis</button>
+          <a :href="f.file" target="_blank" rel="noopener" class="block text-center bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3 rounded-xl transition">Buka gratis</a>
         </div>
       </template>
     </div>
+    <p class="text-center text-xs text-slate-500 mt-6">Setiap materi bisa disimpan sebagai PDF melalui tombol “Simpan sebagai PDF / Cetak” di halamannya.</p>
   </div>
 </section>
 
@@ -459,29 +460,6 @@ body{font-family:'Plus Jakarta Sans',sans-serif}
   </div>
 </footer>
 
-<!-- MODAL UNDUH GRATIS -->
-<div x-show="lead.open" x-cloak x-transition.opacity class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm" @click.self="lead.open=false" role="dialog" aria-modal="true">
-  <div class="w-full max-w-md bg-slate-900 border border-slate-700 rounded-3xl p-7 shadow-2xl">
-    <div class="flex items-start justify-between mb-4">
-      <h3 class="text-xl font-bold font-serif-custom text-white" x-text="lead.item ? lead.item.t : ''"></h3>
-      <button @click="lead.open=false" class="text-slate-400 hover:text-white text-2xl leading-none" aria-label="Tutup">&times;</button>
-    </div>
-    <form x-show="!lead.done" @submit.prevent="submitLead()" class="space-y-4">
-      <p class="text-sm text-slate-400">Isi data berikut untuk membuka materi.</p>
-      <div><label class="block text-sm font-medium text-slate-300 mb-1.5" for="l-nama">Nama</label>
-        <input id="l-nama" x-model="lead.nama" required type="text" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 focus:outline-none rounded-xl px-4 py-3 text-sm"></div>
-      <div><label class="block text-sm font-medium text-slate-300 mb-1.5" for="l-wa">No. WhatsApp</label>
-        <input id="l-wa" x-model="lead.wa" required type="tel" inputmode="tel" pattern="[0-9+\s\-]{9,16}" placeholder="08xxxxxxxxxx" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 focus:outline-none rounded-xl px-4 py-3 text-sm"></div>
-      <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3.5 rounded-xl transition">Buka materi</button>
-    </form>
-    <div x-show="lead.done" class="space-y-4 text-center">
-      <p class="text-sm text-slate-300">Terima kasih, <span x-text="lead.nama"></span>. Materi siap dibuka.</p>
-      <a :href="lead.item ? lead.item.file : '#'" target="_blank" class="block bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3.5 rounded-xl transition">Buka materi</a>
-      <p class="text-xs text-slate-500">Di halaman materi, tekan tombol "Simpan sebagai PDF" untuk menyimpannya.</p>
-    </div>
-  </div>
-</div>
-
 <!-- TOMBOL WHATSAPP MELAYANG -->
 <a x-show="!modal" href="https://wa.me/6285794506290?text=Halo,%20saya%20ingin%20konsultasi%20soal%20pembuatan%20buku" target="_blank" rel="noopener" aria-label="Chat WhatsApp"
    class="fixed z-30 bottom-5 right-5 flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold text-sm px-4 py-3 rounded-full shadow-lg shadow-emerald-500/30 transition">
@@ -567,17 +545,10 @@ function bookCalculator(){
       return this.formatType==='pdf'?base:base.concat(web);
     },
     freebies:[
-      {id:'outline',t:'Template Outline Buku Nonfiksi',d:'Kerangka 12 bab siap isi, dengan contoh untuk buku parenting dan religi. Susun ide Anda menjadi struktur buku dalam satu sore.',file:'template-outline-buku.html'},
-      {id:'checklist',t:'Checklist Sebelum Menyewa Ghostwriter',d:'Daftar persiapan arah buku, bahan, penilaian penulis, dan kesepakatan tertulis, termasuk catatan khusus untuk buku religi dan parenting.',file:'checklist-sebelum-sewa-ghostwriter.html'}
+      {id:'brief',t:'Lembar Brief Buku',d:'Rangkum tema, calon pembaca, tujuan, bahan, dan referensi buku Anda sebagai bekal konsultasi.',file:'brief-buku-singkat.html'},
+      {id:'outline',t:'Template Outline Buku Nonfiksi',d:'Ubah ide awal menjadi kerangka 12 bab, dengan contoh untuk buku parenting dan religi.',file:'template-outline-buku.html'},
+      {id:'checklist',t:'Checklist Sebelum Menyewa Ghostwriter',d:'Periksa kesiapan ide, bahan, target pembaca, dan kesepakatan sebelum memilih ghostwriter.',file:'checklist-sebelum-sewa-ghostwriter.html'}
     ],
-    lead:{open:false,item:null,nama:'',wa:'',done:false},
-    openLead(f){this.lead={open:true,item:f,nama:'',wa:'',done:false}},
-    submitLead(){
-      const l=this.lead;
-      const msg=`Halo, saya mengunduh materi gratis "${l.item.t}".\n\nNama: ${l.nama}\nWhatsApp: ${l.wa}`;
-      window.open('https://wa.me/6285794506290?text='+encodeURIComponent(msg),'_blank');
-      l.done=true;
-    },
     openModal(){this.modal=true},
     submitForm(){
       const t=this.sel(), f=this.form;
